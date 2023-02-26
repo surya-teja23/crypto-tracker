@@ -1,0 +1,67 @@
+* , *::before , *::after { 
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root:has(.home) {
+  min-height: 100vh;
+  background-color: rgba(33 , 37 , 41 , 1);
+}
+
+#root:has(.coin) {
+  min-height: 100vh;
+  background-image: url('../public/images/cryptobckg.jpeg');
+}
+
+#root:has(.col) .container {
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#root:has(.coin) .row {
+  width: fit-content;
+  margin: auto;
+}
+
+#root:has(.coin) .col {
+  background-color: rgba(0,0,0,.8);
+}
+
+#root:has(.coin) img {
+  width: 100px;
+}
+
+#root:has(.coin) table {
+  border-collapse:separate;
+  border-spacing:0 15px;
+}
+
+#root:has(.coin) button a {
+  text-decoration: none;
+  color: white;
+}
+
+td img {
+  width: 55px;
+  margin-right: 20px;
+}
+
+.loader {
+  height: 100px;
+  width: 100px;
+  border: 10px solid transparent;
+  border-top-color: #0DCAF0;
+  margin-inline: auto;
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 40px;
+}
+
+@keyframes spin {
+  to { rotate: 360deg; }
+}
