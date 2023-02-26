@@ -20,7 +20,6 @@ function App() {
 
         let data = await response.json()
         setCoins(data)
-        console.log(data)
       }
       catch (err) { 
         setFetchError(err.message)

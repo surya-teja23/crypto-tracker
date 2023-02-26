@@ -7,7 +7,7 @@ export default function Home( { coins , filteredCoins , setFilteredCoins , isLoa
   const [windowWidth , setWindowWidth] = useState(window.innerWidth)
   window.addEventListener("resize", function () {setWindowWidth(windowWidth.innerWidth)});
   return (
-    <div className={`container-fluid ${windowWidth < 576 ? 'w-100' : 'w-75'} text-center text-white home`}>
+    <div className={`container ${windowWidth < 576 ? 'w-100' : 'w-75'} text-center text-white home`}>
       <div className="row justify-content-center">
         <div className="col-12 h1 mt-5"><u>Welcome to the CryptoChecker</u></div>
         <div className="col-12 ">
