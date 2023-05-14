@@ -1,6 +1,7 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 import Home from "./Home";
 import Coin from "./Coin";
+import Missing from "./Missing";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route index element={ <Home /> } />
           <Route path=":id" element={ <Coin /> } />
         </Route>
+        <Route path="*" element={ <Missing /> } />
       </Routes>
     </div>
   );
