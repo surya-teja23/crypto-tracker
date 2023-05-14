@@ -1,15 +1,35 @@
-import React from 'react'
+import React from "react";
+import { HiRefresh } from "react-icons/hi";
+import useValues from "./Context/DataContext";
 
-export default function SearchComponent( { refresh , setFilteredCoins } ) {
+export default function SearchComponent() {
+  const { isLoading , error , refresh , setFilteredCoins } = useValues()
   return (
-    <div className='d-flex justify-content-center mt-3'>
-      <div className='form-floating'>
-        <input onChange={(e) => setFilteredCoins(e.target.value)} placeholder='Search' className='form-control pe-5 me-5' />
-        <label className='text-dark'>Search for a coin</label>
+    <div className="my-4 d-flex align-items-center justify-content-center">
+      <div className="form-floating">
+        <input
+          onMouseEnter={(e) => {
+            e.target.style.cursor = isLoading || error ? "not-allowed" : "auto";
+          }}
+          onSelect={(e) => {
+            (isLoading || error) && e.target.blur();
+          }}
+          onChange={(e) => setFilteredCoins(e.target.value)}
+          style={{ width: "min(400px,50vw)" }}
+          className="form-control"
+          placeholder="seach"
+        />
+        <label>Search for a Coin</label>
       </div>
-      <button className='btn' onClick={refresh}>
-        <img src='./images/refresh.png' width='40px'/>
+      <button
+        className="btn text-primary"
+        onClick={!isLoading ? refresh : () => false}
+        onMouseEnter={(e) =>
+          (e.target.style.cursor =
+            isLoading ? "not-allowed" : "pointer")
+        }>
+        <HiRefresh className="display-1" />
       </button>
     </div>
-  )
+  );
 }
